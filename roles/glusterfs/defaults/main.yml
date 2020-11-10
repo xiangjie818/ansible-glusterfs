@@ -1,0 +1,8 @@
+---
+glusterfs_packages:
+  - glusterfs
+  - glusterfs-server
+  - glusterfs-fuse
+  - glusterfs-rdma
+
+glusterfs_repo: https://mirrors.aliyun.com/centos/7/storage/x86_64/gluster-8/

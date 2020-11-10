@@ -1,0 +1,6 @@
+---
+  - hosts: glusterfs
+    gather_facts: false
+    become: True
+    roles:
+      - glusterfs

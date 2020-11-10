@@ -1,0 +1,19 @@
+---
+- name: 配置glusterfs源
+  template:
+    src: glusterfs.repo.j2
+    dest: /etc/yum.repos.d/glusterfs.repo
+
+- name: 安装glusterfs
+  package:
+    name: "{{ item }}"
+    state: present
+    enablerepo: glusterfs
+  with_items:
+    - "{{ glusterfs_packages }}"
+
+- name: 设置glusterd开机启动
+  systemd:
+    name: glusterd
+    state: started
+    enabled: yes
