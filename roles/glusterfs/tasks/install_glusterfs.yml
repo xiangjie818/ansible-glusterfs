@@ -4,11 +4,17 @@
     src: glusterfs.repo.j2
     dest: /etc/yum.repos.d/glusterfs.repo
 
+- name: 安装rpcbind
+  package:
+    name: rpcbind
+    state: present
+
 - name: 安装glusterfs
   package:
     name: "{{ item }}"
     state: present
     enablerepo: glusterfs
+    disablerepo: os
   with_items:
     - "{{ glusterfs_packages }}"
 
